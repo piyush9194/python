@@ -2,17 +2,13 @@
 
 import csv
 
+"""Initialize the names of the customer and sales file to be read"""
+
 CUSTOMER_CSV_FILE ='customers.csv'
 SALES_CSV_FILE ='sales.csv'
 
-
-
-
 class SalesPerCustomer:
-
-
     """This module takes two csv customer and sales as input and returns the report sales_per_customer"""
-
     def __init__(self, customer_csv_file, sales_csv_file):
         self.sales_csv_file = sales_csv_file
         self.customer_csv_file = customer_csv_file
@@ -112,20 +108,14 @@ class SalesPerCustomer:
             writer = csv.writer(csvFile)
             writer.writerows(output_table)
 
-
         csvFile.close()
         return("Sucessfully created sales_per_customer.csv")
-
-
-
 
 if __name__ == "__main__":
 
     try:
-
         files=SalesPerCustomer(CUSTOMER_CSV_FILE, SALES_CSV_FILE)
         output_table=files.merge_sales_and_customer_files(CUSTOMER_CSV_FILE, SALES_CSV_FILE)
-
         MESSAGE = files.create_output_file(output_table)
         print(MESSAGE)
 
